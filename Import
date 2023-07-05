@@ -1,0 +1,29 @@
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class SolarEclipseMeasurement {
+    public static void main(String[] args) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        LocalDateTime startTime = LocalDateTime.parse("2023-07-14 10:00:00", formatter);
+        LocalDateTime endTime = LocalDateTime.parse("2023-07-14 12:00:00", formatter);
+
+        Duration eclipseDuration = Duration.between(startTime, endTime);
+        double eclipseCoverage = calculateEclipseCoverage(eclipseDuration);
+
+        System.out.println("Solar Eclipse Measurement:");
+        System.out.println("Start Time: " + startTime);
+        System.out.println("End Time: " + endTime);
+        System.out.println("Duration: " + eclipseDuration);
+        System.out.println("Maximum Coverage: " + eclipseCoverage + "%");
+    }
+
+    private static double calculateEclipseCoverage(Duration eclipseDuration) {
+        // Here you can implement your own logic to calculate the maximum coverage
+        // based on the eclipse duration or any additional data you have
+
+        // For demonstration purposes, let's assume a constant coverage of 80%
+        return 80.0;
+    }
+}
